@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
-import getData from "../utils/getData";
+import getData from "../utils/getNewsData";
+import s from "../style/news.module.css";
 
 const News = () => {
   const [newsData, setNewsData] = useState([]);
@@ -17,15 +18,17 @@ const News = () => {
   }, []);
 
   return (
-    <div>
+    <div className={s.newsPage}>
       <h1>Top news for you</h1>
-      <div>
+      <div className={s.newsBox}>
         {newsData.articles?.map((newsItem) => {
           return (
-            <div>
+            <div className={s.newsCard}>
               <img src={newsItem.urlToImage} alt="" />
-              <h2>{newsItem.title}</h2>
-              <p>{newsItem.description}</p>
+              <div>
+                <h2>{newsItem.title}</h2>
+                <p>{newsItem.description}</p>
+              </div>
             </div>
           );
         })}

@@ -1,8 +1,8 @@
-import { API_PROFILE } from "./api_profile";
+import { API_PROFILE } from "./api_profile_news";
 
 export let newsData;
 export default async function getData(objValue) {
-  const searchValue = "ukraine";
+  const searchValue = "crypto";
   try {
     const responce = await fetch(
       `${API_PROFILE.apiUrl}${API_PROFILE.newsPath}?q=${searchValue}&${API_PROFILE.apiKey}`
