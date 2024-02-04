@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-import getData from "../utils/getNewsData";
 import s from "../style/news.module.css";
+import { useApp } from "./../utils/context";
+import { Link } from "react-router-dom";
 
 const News = () => {
-  const [newsData, setNewsData] = useState([]);
+  const { get_news_data, globalState } = useApp();
+  const [inputValue, setInputValue] = useState("");
   //   console.log(newsData);
   const fetchData = async () => {
     try {
-      const result = await getData();
-      setNewsData(result);
+      await get_news_data(inputValue);
     } catch (error) {
       console.error(error);
     }
@@ -17,19 +18,39 @@ const News = () => {
     fetchData();
   }, []);
 
+  function onInputChange(e) {
+    setInputValue(e.target.value);
+  }
+
+  function onSearchFormSubmit(e) {
+    e.preventDefault();
+    fetchData();
+  }
+
   return (
     <div className={s.newsPage}>
       <h1>Top news for you</h1>
+      <form onSubmit={onSearchFormSubmit}>
+        <input
+          type="text"
+          placeholder="What are you looking for?"
+          value={inputValue}
+          onChange={onInputChange}
+        />
+        <button>Пошук</button>
+      </form>
       <div className={s.newsBox}>
-        {newsData.articles?.map((newsItem) => {
+        {globalState.articles?.map((newsItem) => {
           return (
-            <div className={s.newsCard}>
-              <img src={newsItem.urlToImage} alt="" />
-              <div>
-                <h2>{newsItem.title}</h2>
-                <p>{newsItem.description}</p>
+            <Link to={`/news/${newsItem.title}`}>
+              <div className={s.newsCard} key={newsItem.id}>
+                <img src={newsItem.urlToImage} alt="" />
+                <div>
+                  <h2>{newsItem.title}</h2>
+                  <p>{newsItem.description}</p>
+                </div>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
