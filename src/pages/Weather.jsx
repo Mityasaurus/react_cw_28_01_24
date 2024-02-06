@@ -1,14 +1,13 @@
-import React, { useEffect, useState } from "react";
-import getData from "../utils/getWeatherData";
+import React, { useEffect } from "react";
 import WeatherCard from "../components/WeatherCard"
+import { useApp } from "../utils/context";
 
 export default function Weather() {
-  const [weatherData, setWeatherData] = useState([]);
+  const {get_weather_data, weatherState} = useApp();
 
   const fetchData = async () => {
     try {
-      const result = await getData();
-      setWeatherData(result);
+      await get_weather_data();
     } catch (error) {
       console.error(error);
     }
@@ -16,9 +15,10 @@ export default function Weather() {
   useEffect(() => {
     fetchData();
   }, []);
+
   return (
     <div>
-      <WeatherCard weatherData={weatherData}/>
+      <WeatherCard weatherData={weatherState}/>
     </div>
   );
 }
