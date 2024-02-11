@@ -31,7 +31,7 @@ export const AppProvider = ({ children }) => {
   // weather
   const [weatherState, setWeatherState] = useState([]);
   const get_weather_data = async(...obj) => {
-    const searchValue = obj[0] || "auto:ip";
+    const searchValue = obj[0] || "Kyiv";
     try{
       const responce = await fetch(
         `${API_PROFILE_WEATHER.apiUrl}${API_PROFILE_WEATHER.path}?key=${API_PROFILE_WEATHER.apiKey}&q=${searchValue}&aqi=${API_PROFILE_WEATHER.aqi}&days=${API_PROFILE_WEATHER.days}`

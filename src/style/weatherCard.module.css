@@ -135,11 +135,13 @@
 }
 .detailsCondition img {
   width: 230px;
+  margin-top: 20px;
+  margin-bottom: -20px;
 }
 .text_condition {
   color: #292929;
   font-size: 32px;
-  font-weight: 700;
+  font-weight: 800;
   letter-spacing: 0;
   line-height: normal;
   text-align: center;
@@ -215,13 +217,14 @@
 }
 .text_fcTemp {
   margin-left: 25px;
-  margin-right: 35px;
+  margin-right: 30px;
   font-size: 19px;
   font-weight: 800;
 }
 .text_fc_date {
   font-size: 19px;
   font-weight: 800;
+  text-wrap: nowrap;
 }
 .cardHourlyForecast {
   width: 870px;
@@ -238,14 +241,46 @@
   flex-direction: column;
   align-items: center;
 }
+.cardHourlyForecast h2{
+  font-size: 32px;
+  font-weight: 800;
+  margin: 6px 0 16px 0;
+}
 .container_hours {
   display: flex;
   align-items: center;
   justify-content: center;
 }
+.box_hour {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  margin: 0 10px;
+  padding: 10px 30px;
+  border-radius: 30px;
+  max-width: 78px;
+}
+.box_hour img{
+  width: 70px;
+  height: 70px;
+}
+.box_hour p{
+  font-weight: 800;
+  font-size: 22px;
+  margin: 5px 0;
+}
 .hour_day {
-  color: orange;
+  background: linear-gradient(
+    180deg,
+    rgb(248, 133, 8) -10%,
+    rgba(246, 250, 217, 0) 120%
+  );
 }
 .hour_night {
-  color: blue;
+  background: linear-gradient(
+    180deg,
+    rgb(68, 61, 100) -10%,
+    rgba(101, 130, 198, 0) 120%
+  );
 }
