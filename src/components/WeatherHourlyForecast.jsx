@@ -1,47 +1,16 @@
 import React from "react";
 import s from "../style/weatherCard.module.css";
 import getShortTimeString from "./../utils/getShortTimeStringFromDate";
-import nImg from "../assets/img/wind/n.png";
-import nneImg from "../assets/img/wind/nne.png";
-import neImg from "../assets/img/wind/ne.png";
-import eneImg from "../assets/img/wind/ene.png";
-import eImg from "../assets/img/wind/e.png";
-import eseImg from "../assets/img/wind/ese.png";
-import seImg from "../assets/img/wind/se.png";
-import sseImg from "../assets/img/wind/sse.png";
-import sImg from "../assets/img/wind/s.png";
-import sswImg from "../assets/img/wind/ssw.png";
-import swImg from "../assets/img/wind/sw.png";
-import wswImg from "../assets/img/wind/wsw.png";
-import wImg from "../assets/img/wind/w.png";
-import wnwImg from "../assets/img/wind/wnw.png";
-import nnwImg from "../assets/img/wind/nnw.png";
-import nwImg from "../assets/img/wind/nw.png";
+import windDirImg from "../assets/img/wind/n.png";
+import { useApp } from "../utils/context";
 
 export default function WeatherHourlyForecast(props) {
-  const dayHours = props.weatherState?.forecast?.forecastday[0]?.hour;
+  const { weatherIndex } = useApp();
+  const dayHours = props.weatherState?.forecast?.forecastday[weatherIndex]?.hour;
   if (!dayHours) {
     return <div>Loading...</div>;
   }
   let hourCounter = 9;
-  const windDirections = {
-    N: nImg,
-    NNE: nneImg,
-    NE: neImg,
-    ENE: eneImg,
-    E: eImg,
-    ESE: eseImg,
-    SE: seImg,
-    SSE: sseImg,
-    S: sImg,
-    SSW: sswImg,
-    SW: swImg,
-    WSW: wswImg,
-    W: wImg,
-    WNW: wnwImg,
-    NNW: nnwImg,
-    NW: nwImg,
-  };
   return (
     <div className={s.cardHourlyForecast}>
       <h2>Hourly Forecast</h2>
@@ -56,7 +25,11 @@ export default function WeatherHourlyForecast(props) {
                 <p>{getShortTimeString(date)}</p>
                 <img src={hour.condition.icon} alt="Condition" />
                 <p>{hour.temp_c}°C</p>
-                <img src={windDirections[hour.wind_dir]} alt="Wind direction" />
+                <img
+                  src={windDirImg}
+                  alt="Wind direction"
+                  style={{ rotate: `${hour.wind_degree}deg` }}
+                />
                 <p>{hour.wind_kph}km/h</p>
               </div>
             );

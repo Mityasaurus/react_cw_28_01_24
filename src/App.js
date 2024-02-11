@@ -4,7 +4,7 @@ import Weather from "./pages/Weather";
 import Blog from "./pages/Blog";
 import Layout from "./pages/Layout";
 import NotFound from "./pages/NotFound";
-import { AppProvider } from "./utils/context";
+import { AppProvider, useApp } from "./utils/context";
 import NewsDetails from "./pages/NewsDetails";
 
 function App() {

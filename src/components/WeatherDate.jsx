@@ -5,11 +5,12 @@ import getStringFromDate from "../utils/getStringFromDate";
 
 export default function WeatherDate(props) {
   const location = props.weatherState?.location;
-  const date = new Date(Date.parse(location.localtime));
 
   if (!location) {
     return <div>Loading...</div>;
   }
+
+  const date = new Date(Date.parse(location.localtime));
 
   return (
     <div className={s.cardDatetime}>
