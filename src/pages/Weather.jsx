@@ -5,14 +5,18 @@ import WeatherDate from "../components/WeatherDate";
 import WeatherDetails from "../components/WeatherDetails";
 import WeatherForecast from "../components/WeatherForecast";
 import WeatherHourlyForecast from "../components/WeatherHourlyForecast";
+import locationImg from "../assets/img/location.png";
 
 export default function Weather() {
   const { get_weather_data, weatherState } = useApp();
   const [inputValue, setInputValue] = useState("");
 
-  const fetchData = async () => {
+  const fetchData = async (searchValue) => {
     try {
-      await get_weather_data(inputValue);
+      if (!searchValue) {
+        searchValue = inputValue;
+      }
+      await get_weather_data(searchValue);
     } catch (error) {
       console.error(error);
     }
@@ -30,6 +34,11 @@ export default function Weather() {
     fetchData();
   }
 
+  function onBtnCurrLocationClick(e) {
+    setInputValue("");
+    fetchData("auto:ip");
+  }
+
   if (!weatherState) {
     return <div>Loading...</div>;
   }
@@ -45,6 +54,14 @@ export default function Weather() {
             onChange={onInputChange}
           />
         </form>
+        <button
+          type="button"
+          onClick={onBtnCurrLocationClick}
+          className={s.btn_location}
+        >
+          <img src={locationImg} alt="Location" />
+          <p>Current Location</p>
+        </button>
       </div>
       <div className={s.weatherCardPart}>
         <WeatherDate weatherState={weatherState} />

@@ -142,6 +142,7 @@
   letter-spacing: 0;
   line-height: normal;
   text-align: center;
+  text-wrap: nowrap;
 }
 .detailsInfo {
   flex: 1;
@@ -280,4 +281,28 @@
     rgb(68, 61, 100) -10%,
     rgba(101, 130, 198, 0) 120%
   );
+}
+.btn_location{
+  width: 292px;
+  height: 62px;
+  background-color: #4CBB17;
+  color: #FFFFFFcc;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: normal;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 40px;
+  box-shadow: 0px 4px 40px #00000040;
+  border-width: 0;
+  padding: 0;
+}
+.btn_location p{
+  margin-right: 10px;
+}
+.btn_location:hover{
+  cursor: pointer;
 }
