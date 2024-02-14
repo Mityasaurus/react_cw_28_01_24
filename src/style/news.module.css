@@ -1,28 +1,33 @@
-.newsPage{
-    margin-left: 40px;
+.newsPage {
+  margin-left: 40px;
 }
-.newsBox{
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    margin: 10px 0;
+.newsBox {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  margin: 10px 0;
 }
-.newsCard img{
- width: 25%;
+.newsBox a {
+  text-decoration: none;
+  color: black;
 }
-.newsCard{
-    display: flex;
-    align-items: center;
-    margin: 5px 0 25px 0;
-    padding: 0px 0 25px 0;
-    border-bottom: 2px solid gray;
+.newsCard img {
+  width: 25%;
 }
-.newsCard div{
-    margin-left: 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
+.newsCard {
+  display: flex;
+  align-items: center;
+  margin: 5px 0 25px 0;
+  padding: 0px 0 25px 0;
+  border-bottom: 2px solid gray;
+  text-decoration: none;
 }
-.newsCard div p{
-    font-size: 18px;
+.newsCard div {
+  margin-left: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.newsCard div p {
+  font-size: 18px;
 }

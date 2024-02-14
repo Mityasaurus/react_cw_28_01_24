@@ -1,11 +1,15 @@
 import React from "react";
-import s from "../style/weatherCard.module.css";
+import sL from "../style/weatherCard.module.css";
+import sD from "../style/weatherCardDark.module.css";
 import getStringFromDate from "./../utils/getStringFromDate";
 import { useApp } from "../utils/context";
 
 export default function WeatherForecast(props) {
   const { updateWeatherIndex } = useApp();
   const fDay = props.weatherState?.forecast?.forecastday.slice(1, 6);
+
+  const { isDarkMode } = useApp();
+  const s = isDarkMode ? sD : sL;
 
   if (!fDay) {
     return <div>Loading...</div>;

@@ -1,12 +1,14 @@
 import React from "react";
-import s from "../style/weatherCard.module.css";
+import sL from "../style/weatherCard.module.css";
+import sD from "../style/weatherCardDark.module.css";
 import getShortTimeString from "./../utils/getShortTimeStringFromDate";
 import windDirImg from "../assets/img/wind/n.png";
 import { useApp } from "../utils/context";
 
 export default function WeatherHourlyForecast(props) {
-  const { weatherIndex } = useApp();
+  const { weatherIndex, isDarkMode } = useApp();
   const dayHours = props.weatherState?.forecast?.forecastday[weatherIndex]?.hour;
+  const s = isDarkMode ? sD : sL;
   if (!dayHours) {
     return <div>Loading...</div>;
   }

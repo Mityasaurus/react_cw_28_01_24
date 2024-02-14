@@ -1,16 +1,19 @@
 import React from "react";
-import s from "../style/weatherCard.module.css";
+import sL from "../style/weatherCard.module.css";
+import sD from "../style/weatherCardDark.module.css";
 import sunriseImage from "../assets/img/sunrise.png";
 import sunsetImage from "../assets/img/sunset.png";
 import humidityImage from "../assets/img/humidity.png";
 import windImage from "../assets/img/wind.png";
 import pressureImage from "../assets/img/pressure.png";
 import UVImage from "../assets/img/UV.png";
+import { useApp } from "../utils/context";
 
 export default function WeatherDetails(props) {
   const current = props.weatherState?.current;
   const astro = props.weatherState?.forecast?.forecastday[0].astro;
-
+  const { isDarkMode } = useApp();
+  const s = isDarkMode ? sD : sL;
   if (!current || !astro) {
     return <div>Loading...</div>;
   }

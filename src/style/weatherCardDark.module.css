@@ -1,10 +1,6 @@
 .weatherCard {
   font-family: "Poppins-Medium", Helvetica;
-  background: linear-gradient(
-    90deg,
-    rgb(255, 255, 255) 0%,
-    rgb(34, 37, 39, 0.68) 100%
-  );
+  background: linear-gradient(90deg, rgb(56, 56, 56) 0%, rgb(0, 0, 0) 150%);
   width: 100%;
   height: 100vh;
   display: flex;
@@ -18,7 +14,7 @@
   align-items: center;
 }
 .cardDatetime {
-  background: #d9d9d9;
+  background: #444444;
   border-radius: 30px;
   width: 510px;
   height: 330px;
@@ -51,7 +47,7 @@
   font-weight: 500;
 }
 .cardDetails {
-  background: #d9d9d9;
+  background: #444444;
   border-radius: 30px;
   width: 784px;
   height: 330px;
@@ -74,7 +70,7 @@
   -webkit-text-fill-color: transparent;
   background: linear-gradient(
     90deg,
-    rgb(41, 41, 41) 0%,
+    rgb(255, 255, 255) 0%,
     rgba(255, 255, 255, 0) 115%
   );
   background-clip: text;
@@ -88,7 +84,7 @@
   margin-top: 22px;
 }
 .feelsLike {
-  color: #292929;
+  color: #ffffff;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0;
@@ -111,14 +107,14 @@
   margin-right: 6px;
 }
 .text_sunTitle {
-  color: #292929;
+  color: #ffffff;
   font-size: 20px;
   font-weight: 700;
   letter-spacing: 0;
   line-height: normal;
 }
 .text_sunTime {
-  color: #292929;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 600;
   letter-spacing: 0;
@@ -136,7 +132,7 @@
   margin-bottom: -20px;
 }
 .text_condition {
-  color: #292929;
+  color: #ffffff;
   font-size: 32px;
   font-weight: 800;
   letter-spacing: 0;
@@ -163,7 +159,7 @@
   margin-top: 12px;
 }
 .text_infoData {
-  color: #292929;
+  color: #ffffff;
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0;
@@ -173,7 +169,7 @@
   margin-top: 10px;
 }
 .text_infoName {
-  color: #292929;
+  color: #ffffff;
   font-size: 16px;
   font-weight: 500;
   letter-spacing: 0;
@@ -185,7 +181,7 @@
 .cardForecast {
   width: 414px;
   height: 366px;
-  background: #d9d9d9;
+  background: #444444;
   border-radius: 30px;
   -webkit-box-shadow: 11px 11px 7px 2px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 11px 11px 7px 2px rgba(0, 0, 0, 0.6);
@@ -210,7 +206,7 @@
   width: 100%;
   cursor: pointer;
 }
-.box_forecast:hover{
+.box_forecast:hover {
   border: 2px solid grey;
   border-radius: 30px;
 }
@@ -232,7 +228,7 @@
 .cardHourlyForecast {
   width: 870px;
   height: 366px;
-  background: #d9d9d9;
+  background: #444444;
   border-radius: 30px;
   -webkit-box-shadow: 11px 11px 7px 2px rgba(0, 0, 0, 0.6);
   -moz-box-shadow: 11px 11px 7px 2px rgba(0, 0, 0, 0.6);
@@ -274,18 +270,10 @@
   margin: 5px 0;
 }
 .hour_day {
-  background: linear-gradient(
-    180deg,
-    rgb(248, 133, 8) -10%,
-    rgba(246, 250, 217, 0) 120%
-  );
+  background: rgba(0, 0, 0, 0.27);
 }
 .hour_night {
-  background: linear-gradient(
-    180deg,
-    rgb(68, 61, 100) -10%,
-    rgba(101, 130, 198, 0) 120%
-  );
+  background: rgba(0, 0, 0, 0.27);
 }
 .btn_location {
   width: 292px;
@@ -312,14 +300,14 @@
   cursor: pointer;
 }
 .searchBar {
-  background-color: #d9d9d9;
+  background-color: #444444;
   border: 1px solid #000000;
   border-radius: 40px;
   box-shadow: 0px 4px 40px #00000040;
   height: 62px;
   width: 900px;
   margin-right: 102px;
-  color: #292929;
+  color: #ffffff;
   font-size: 18px;
   font-weight: 400;
   letter-spacing: 0;
