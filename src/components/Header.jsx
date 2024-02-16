@@ -21,8 +21,7 @@ export default function Header() {
         </NavLink>
       </nav>
       <FormControlLabel
-        className={s.themeSwitch}
-        control={<Switch onChange={toggleTheme} />}
+        control={<Switch onChange={toggleTheme} className={s.themeSwitch} />}
         label="Switch theme"
       />
     </header>
