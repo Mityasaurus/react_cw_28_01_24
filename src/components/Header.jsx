@@ -1,7 +1,7 @@
 import React from "react";
 import { NavLink } from "react-router-dom";
 import s from "../style/header.module.css";
-import { Switch } from "@mui/material";
+import { FormControlLabel, Switch } from "@mui/material";
 import { useApp } from "../utils/context";
 
 export default function Header() {
@@ -20,7 +20,11 @@ export default function Header() {
           Blog
         </NavLink>
       </nav>
-      <Switch onChange={toggleTheme} />
+      <FormControlLabel
+        className={s.themeSwitch}
+        control={<Switch onChange={toggleTheme} />}
+        label="Switch theme"
+      />
     </header>
   );
 }

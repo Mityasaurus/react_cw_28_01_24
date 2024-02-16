@@ -4,7 +4,7 @@ import { useApp } from "./../utils/context";
 import { Link } from "react-router-dom";
 
 const News = () => {
-  const { get_news_data, globalState } = useApp();
+  const { get_news_data, globalState, isDarkMode } = useApp();
   const [inputValue, setInputValue] = useState("");
   //   console.log(newsData);
   const fetchData = async () => {
@@ -42,7 +42,10 @@ const News = () => {
       <div className={s.newsBox}>
         {globalState.articles?.map((newsItem) => {
           return (
-            <Link to={`/news/${newsItem.title}`}>
+            <Link
+              to={`/news/${newsItem.title}`}
+              style={{ color: isDarkMode ? "#fff" : "#000" }}
+            >
               <div className={s.newsCard} key={newsItem.id}>
                 <img src={newsItem.urlToImage} alt="" />
                 <div>

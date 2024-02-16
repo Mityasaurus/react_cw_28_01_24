@@ -3,10 +3,14 @@ import sL from "../style/weatherCard.module.css";
 import sD from "../style/weatherCardDark.module.css";
 import sunriseImage from "../assets/img/sunrise.png";
 import sunsetImage from "../assets/img/sunset.png";
-import humidityImage from "../assets/img/humidity.png";
-import windImage from "../assets/img/wind.png";
-import pressureImage from "../assets/img/pressure.png";
-import UVImage from "../assets/img/UV.png";
+import humidityL from "../assets/img/humidity.png";
+import windL from "../assets/img/wind.png";
+import pressureL from "../assets/img/pressure.png";
+import UVL from "../assets/img/UV.png";
+import humidityD from "../assets/img/humidityDark.png";
+import windD from "../assets/img/windDark.png";
+import pressureD from "../assets/img/pressureDark.png";
+import UVD from "../assets/img/UVDark.png";
 import { useApp } from "../utils/context";
 
 export default function WeatherDetails(props) {
@@ -14,6 +18,10 @@ export default function WeatherDetails(props) {
   const astro = props.weatherState?.forecast?.forecastday[0].astro;
   const { isDarkMode } = useApp();
   const s = isDarkMode ? sD : sL;
+  const humidityImage = isDarkMode ? humidityD : humidityL;
+  const windImage = isDarkMode ? windD : windL;
+  const pressureImage = isDarkMode ? pressureD : pressureL;
+  const UVImage = isDarkMode ? UVD : UVL;
   if (!current || !astro) {
     return <div>Loading...</div>;
   }
